@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-    xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordova-background-geolocation-lt"
     version="2.9.1">
 
@@ -12,7 +11,6 @@
 
     <engines>
         <engine name="cordova" version=">=7.1.0"/>
-        <engine name="cordova-android" version=">=6.3.0"/>
         <engine name="cordova-ios" version=">=4.4.0"/>
     </engines>
 
@@ -67,30 +65,5 @@
         <framework src="src/ios/TSLocationManager.framework" custom="true" />
         <source-file src="src/ios/CDVBackgroundGeolocation.m" />
         <header-file src="src/ios/CDVBackgroundGeolocation.h" />
-     </platform>
-
-     <!-- android -->
-    <platform name="android">
-        <preference name="LICENSE" default="YOUR_LICENSE_KEY" />
-        <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <meta-data android:name="com.transistorsoft.locationmanager.license" android:value="$LICENSE" />
-        </config-file>
-
-        <preference name="GOOGLE_API_VERSION" default="11.6.0" />
-        <framework src="com.google.android.gms:play-services-location:$GOOGLE_API_VERSION"/>
-        
-        <preference name="APPCOMPAT_VERSION" default="26.1.0" />
-        <framework src="com.android.support:appcompat-v7:$APPCOMPAT_VERSION"/>
-
-        <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
-        <resource-file src="src/android/libs/tslocationmanager.aar" target="src/android/libs/tslocationmanager.aar" />
-
-        <source-file src="src/android/CDVBackgroundGeolocation.java" target-dir="src/com/transistorsoft/cordova/bggeo" />
-
-        <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="BackgroundGeolocation">
-                <param name="android-package" value="com.transistorsoft.cordova.bggeo.CDVBackgroundGeolocation"/>
-            </feature>
-        </config-file>
      </platform>
 </plugin>
